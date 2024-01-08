@@ -1,50 +1,27 @@
 
-<div id="indicators-carousel" class="relative w-full" data-carousel="static">
+<div id="indicators-carousel" class="relative w-full overflow-hidden p-2" data-carousel="static" style="border-radius: 30px;">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <!-- Item 1 -->
-        <div class="duration-700 ease-in-out" data-carousel-item="active">
-            <img src=""
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <h1>hey1</h1>
-        </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src=""
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <h1>hey2</h1>
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src=""
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <h1>hey3</h1>
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src=""
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <h1>hey4</h1>
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src=""
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                <h1>hey5</h1>
-        </div>
+    <div class=" h-auto overflow-hidden rounded-lg md:h-96 bg-slate-400">
+        <% for( let i = 0; i < 5; i++ ) { %>
+            <div class="<%= i === 0 ? 'duration-700 ease-in-out' : 'hidden' %>" data-carousel-item>
+                <img src="<%=newsData[i].urlToImage %>"
+                    class="block w-full transition-all" alt="..." loading="lazy" style="border-radius: 10px;">
+                
+                    
+                    <div class="bg-slate-400 px-2 py-3 pb-5">
+                        <p class="text-lg font-bold text-black text-center"> <%= newsData[i].title.substring(0, 30)+'...' %> </p>
+                        <p class="text-sm font-bold text-black text-center text"> <%= newsData[i].description %> </p>
+                    </div>
+            </div>
+        <% } %>
     </div>
-    <!-- Slider indicators -->
-    <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-            data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-            data-carousel-slide-to="1"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-            data-carousel-slide-to="2"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-            data-carousel-slide-to="3"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-            data-carousel-slide-to="4"></button>
+
+    <!-- slider indicators -->
+
+    <div class="absolute z-30 flex -translate-x-1/2 space-x-2 rtl:space-x-reverse bottom-3 left-1/2">
+        <% for (let i = 0; i < 5; i++) { %>
+            <button type="button" class="w-2 h-2 rounded-full <%= i === 0 ? 'bg-white' : 'bg-white/50' %>" aria-current="<%= i === 0 %>" aria-label="<%= `Slide ${i + 1}` %>" data-carousel-slide-to="<%= i %>"></button>
+        <% } %>
     </div>
     <!-- Slider controls -->
     <button type="button"

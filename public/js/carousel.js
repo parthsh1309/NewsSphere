@@ -7,20 +7,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0;
 
-    function showSlide(index) {
-        items.forEach((item, i) => {
-            if (i === index) {
-                item.classList.add("duration-700", "ease-in-out");
-                item.classList.remove("hidden");
-            } else {
-                item.classList.add("hidden");
-                item.classList.remove("duration-700", "ease-in-out");
-            }
-        });
+   function updateIndicatorStyles() {
+      indicators.forEach((indicator, i) => {
+        const isActive = i === currentIndex;
+        const brightnessClass = isActive ? 'bg-white' : 'bg-white/50';
+        
+        indicator.className = `w-2 h-2 rounded-full ${brightnessClass}`;
+        indicator.setAttribute('aria-current', isActive);
+      });
+    }
 
-        indicators.forEach((indicator, i) => {
-            indicator.setAttribute("aria-current", i === index);
-        });
+    // Update indicator styles when changing slides
+    function showSlide(index) {
+      items.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add("duration-700", "ease-in-out");
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+          item.classList.remove("duration-700", "ease-in-out");
+        }
+      });
+
+      updateIndicatorStyles();
     }
 
     function goToSlide(index) {
@@ -37,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = (currentIndex - 1 + items.length) % items.length;
         showSlide(currentIndex);
     }
+
 
     indicators.forEach((indicator, index) => {
         indicator.addEventListener("click", function () {

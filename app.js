@@ -7,7 +7,6 @@ const cors = require("cors");
 require("dotenv").config({ path: "./config/.env" });
 
 const User = require("./models/users");
-const userAuth = require("./middleware/userAuth");
 
 const passport = require("passport");
 const localStatergy = require("passport-local");
@@ -37,13 +36,11 @@ passport.use(new localStatergy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/",userAuth,async(req, res) => {
-  res.render("home");
-});
-
+const homeRoute = require("./src/routes/home");
 const loginRoute = require("./src/routes/auth/login"); 
 const signupRoute = require("./src/routes/auth/signup"); 
 
+app.use("/", homeRoute);
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
 
