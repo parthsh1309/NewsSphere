@@ -1,4 +1,24 @@
 <%-include('./partials/header.ejs') %>
+    <div class="overflow-hidden h-full pt-2">
+        <header class="overflow-hidden h-12 flex text-center px-2 items-center justify-between shadow-2xl py-7">
+            <div>
+                <input id="checkbox" type="checkbox">
+                <l abel class="toggle" for="checkbox">
+                    <div id="bar1" class="bars"></div>
+                    <div id="bar2" class="bars"></div>
+                    <div id="bar3" class="bars"></div>
+                    </label>
+            </div>
+            <div class="font-merri text-2xl text-white">NewsSphere</div>
+            <span class="material-symbols-outlined text-white text-4xl">account_circle</span>
+        </header>
 
-</body>
-</html>
+        <%-include('./partials/carousel.ejs') %>
+
+    </div>
+
+
+
+    </body>
+    <script src="/js/carousel.js"></script>
+    </html>
