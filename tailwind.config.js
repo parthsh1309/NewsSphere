@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
        'merri': 'Merriweather,Serif',
       },
+      
     },
   },
   plugins: [],

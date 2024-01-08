@@ -1,0 +1,4 @@
+
+input:checked+label {
+    outline: 2px solid #fff;
+  }

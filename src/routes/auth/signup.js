@@ -4,6 +4,8 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const User = require("../../../models/users");
 
+const { v4: uuidv4 } = require("uuid");
+
 
 const userLoggedIn = require('../../../middleware/userLoggedIn');
 
@@ -30,6 +32,7 @@ router.post("/", async (req, res) => {
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
     const user = new User({
+      uuid: uuidv4(),
       name: name,
       email: email,
       canSendMail: terms,
@@ -40,9 +43,9 @@ router.post("/", async (req, res) => {
       if (err) {
         console.log(err);
       }else{
-        console.log('the rew user',req.user)
+        console.log('the rew user',req.user) 
           console.log("User created successfully");
-          res.redirect("/userPreference");
+          res.redirect(`/userPreference/${req.user.uuid}`);
       }
     });
   } catch (error) {

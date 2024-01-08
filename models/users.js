@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const database = require("../config/database");
 
 const passportLocalMongoose = require("passport-local-mongoose");
-const { v4: uuidv4 } = require("uuid");
 
 const userSchema = new mongoose.Schema({
+  uuid: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
@@ -27,10 +29,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  newsLanguage:{
-    type: String,
-    default: "",
-  }
 });
 
 userSchema.plugin(passportLocalMongoose, {
