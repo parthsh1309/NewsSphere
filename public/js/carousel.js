@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
           item.classList.remove("duration-700", "ease-in-out");
         }
       });
-
+      
       updateIndicatorStyles();
     }
-
+    
     function goToSlide(index) {
         currentIndex = index;
         showSlide(currentIndex);

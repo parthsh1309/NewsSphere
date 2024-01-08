@@ -1,16 +1,17 @@
 
 <div id="indicators-carousel" class="relative w-full overflow-hidden p-2" data-carousel="static" style="border-radius: 30px;">
     <!-- Carousel wrapper -->
-    <div class=" h-auto overflow-hidden rounded-lg md:h-96 bg-slate-400">
+    <div class=" h-auto overflow-hidden rounded-lg bg-slate-400 ">
         <% for( let i = 0; i < 5; i++ ) { %>
             <div class="<%= i === 0 ? 'duration-700 ease-in-out' : 'hidden' %>" data-carousel-item>
                 <img src="<%=newsData[i].urlToImage %>"
-                    class="block w-full transition-all" alt="..." loading="lazy" style="border-radius: 10px;">
+                    class="block w-full transition-all md:h-96" alt="..." loading="lazy" style="border-radius: 10px;" >
                 
                     
                     <div class="bg-slate-400 px-2 py-3 pb-5">
-                        <p class="text-lg font-bold text-black text-center"> <%= newsData[i].title.substring(0, 30)+'...' %> </p>
-                        <p class="text-sm font-bold text-black text-center text"> <%= newsData[i].description %> </p>
+                        <p class="text-lg font-bold text-gray-800 text-center"> <%= newsData[i].title.substring(0, 30)+'...' %> </p>
+                        <p class="text-sm font-bold text-gray-600 text-center"> <%= newsData[i].description.substring(0, 100)+'...' %> </p>
+                        <span id="time" class="text-xs font-bold text-gray-500 flex justify-end"><%= newsData[i].publishedAt %></span>
                     </div>
             </div>
         <% } %>
@@ -51,3 +52,4 @@
         </span>
     </button>
 </div>
+
