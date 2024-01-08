@@ -39,10 +39,12 @@ passport.deserializeUser(User.deserializeUser());
 const homeRoute = require("./src/routes/home");
 const loginRoute = require("./src/routes/auth/login"); 
 const signupRoute = require("./src/routes/auth/signup"); 
+const userPreferenceRoute = require("./src/routes/auth/userPreference");
 
 app.use("/", homeRoute);
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
+app.use("/userPreference", userPreferenceRoute);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

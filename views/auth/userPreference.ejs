@@ -1,0 +1,105 @@
+<%-include('../partials/header.ejs') %>
+<section class="bg-gray-50 dark:bg-gray-900 h-full m-auto flex items-center">
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 w-full"
+  >
+    <a
+      href="/"
+      class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+    >
+      <img
+        src="/images/logo-no-background.svg"
+        alt=""
+        width="150px"
+        height="150px"
+      />
+    </a>
+    <div
+      class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+    >
+      <div class="p-4 space-y-4 md:space-y-6 sm:p-8">
+        <h1
+          class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white flex justify-center text-center"
+        >
+          Please select your preferences Below
+        </h1>
+        <hr>
+        <form
+          class="space-y-4 md:space-y-6"
+          action="/newsCategory"
+          method="post"
+          >
+          <p class="mb-2 text-base font-medium text-gray-300">In Which category do you want to get news..?</p>
+          <div class="flex flex-wrap gap-5 justify-center">
+
+            <input
+              type="checkbox "
+              class="hidden"
+              id="option1"
+              name="option1"
+              value="buisness"
+            />
+            <label for="Buisness" class=" py-2 px-3 rounded-full bg-slate-500 text-white outline-2 outline-slate-900"> Buisness</label>
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option2"
+              name="option2"
+              value="Car"
+            />
+            <label for="entertainment"> Entertainment</label>
+
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option3"
+              name="option3"
+              value="sports"
+            />
+            <label for="option3"> Sports</label>
+
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option4"
+              name="option4"
+              value="technology"
+            />
+            <label for="option3"> Technology</label>
+
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option5"
+              name="option5"
+              value="health"
+            />
+            <label for="option5"> Health</label>
+
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option6"
+              name="option6"
+              value="general"
+            />
+            <label for="option6"> General</label>
+
+            <input
+              type="checkbox"
+              class="hidden"
+              id="option7"
+              name="option7"
+              value="science"
+            />
+            <label for="option7"> Science</label>
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

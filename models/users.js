@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  newsCategory: {
+    type: String,
+    default: "",
+  },
+  newsLanguage:{
+    type: String,
+    default: "",
+  }
 });
 
 userSchema.plugin(passportLocalMongoose, {

@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
       }else{
         console.log('the rew user',req.user)
           console.log("User created successfully");
-          res.redirect("/");
+          res.redirect("/userPreference");
       }
     });
   } catch (error) {
