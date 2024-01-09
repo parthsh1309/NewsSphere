@@ -44,7 +44,7 @@ const userPreferenceRoute = require("./src/routes/auth/userPreference");
 app.use("/", homeRoute);
 app.use("/login", loginRoute);
 app.use("/signup", signupRoute);
-app.use("/userPreference", userPreferenceRoute);
+app.use("/userPreference", userPreferenceRoute); 
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
