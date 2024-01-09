@@ -1,55 +1,31 @@
-
-<div id="indicators-carousel" class="relative w-full overflow-hidden p-2" data-carousel="static" style="border-radius: 30px;">
-    <!-- Carousel wrapper -->
-    <div class=" h-auto overflow-hidden rounded-lg bg-slate-400 ">
-        <% for( let i = 0; i < 5; i++ ) { %>
-            <div class="<%= i === 0 ? 'duration-700 ease-in-out' : 'hidden' %>" data-carousel-item>
-                <img src="<%=newsData[i].urlToImage %>"
-                    class="block w-full transition-all md:h-96" alt="..." loading="lazy" style="border-radius: 10px;" >
-                
-                    
-                    <div class="bg-slate-400 px-2 py-3 pb-5">
-                        <p class="text-lg font-bold text-gray-800 text-center"> <%= newsData[i].title.substring(0, 30)+'...' %> </p>
-                        <p class="text-sm font-bold text-gray-600 text-center"> <%= newsData[i].description.substring(0, 100)+'...' %> </p>
-                        <span id="time" class="text-xs font-bold text-gray-500 flex justify-end"><%= newsData[i].publishedAt %></span>
-                    </div>
-            </div>
-        <% } %>
-    </div>
-
-    <!-- slider indicators -->
-
-    <div class="absolute z-30 flex -translate-x-1/2 space-x-2 rtl:space-x-reverse bottom-3 left-1/2">
-        <% for (let i = 0; i < 5; i++) { %>
-            <button type="button" class="w-2 h-2 rounded-full <%= i === 0 ? 'bg-white' : 'bg-white/50' %>" aria-current="<%= i === 0 %>" aria-label="<%= `Slide ${i + 1}` %>" data-carousel-slide-to="<%= i %>"></button>
-        <% } %>
-    </div>
-    <!-- Slider controls -->
-    <button type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev>
-        <span
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M5 1 1 5l4 4" />
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next>
-        <span
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m1 9 4-4-4-4" />
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
+<div id="main-slider" class="splide bg-slate-400 rounded-10px m-10px">
+  <div class="splide__track">
+    <ul class="splide__list">
+      <!-- Main slider content goes here -->
+      <% for (let i = 0; i < 5; i++) { %>
+      <li class="splide__slide flex flex-col">
+        <img
+          src="<%= newsData[i].urlToImage %>"
+          class="block w-full md:h-96"
+          alt="..."
+          loading="lazy"
+          style="border-radius: 10px"
+        />
+        <div class="px-2 py-3 pb-5">
+          <p class="text-lg font-bold text-gray-800 text-center">
+            <%= newsData[i].title.substring(0, 30) + '...' %>
+          </p>
+          <p class="text-sm font-bold text-gray-600 text-center">
+            <%= newsData[i].description.substring(0, 100) + '...' %>
+          </p>
+          <span
+            id="time"
+            class="text-xs font-bold text-gray-500 flex justify-end"
+            ><%= newsData[i].publishedAt %></span
+          >
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  </div>
 </div>
-

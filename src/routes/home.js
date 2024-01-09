@@ -10,7 +10,8 @@ const fetchTopHeadlines = require('../api/fetchTopHeadlines')
 const userAuth = require("../../middleware/userAuth");
 
 router.get("/",userAuth,async (req, res) => {
-    const response = await fetchTopHeadlines(newsapi);
+    const {newsCategory} = req.user;
+    const response = await fetchTopHeadlines(newsapi,newsCategory);
     // console.log(response.articles[1]);
     res.render("home",{newsData:response.articles});
 });
