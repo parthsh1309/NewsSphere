@@ -5,7 +5,8 @@ module.exports=function fetchTopHeadlines(newsapi,categories){
         q: 'india',
         // category: categories,
         language: 'en',
-        country: 'in'
+        country: 'in',
+        pageSize:8
       }).then(response => {
         // console.log(response);
         return response;

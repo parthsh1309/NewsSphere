@@ -1,0 +1,27 @@
+<h1 class="text-2xl font-bold p-3 text-white">Latest News</h1>
+<div id="latestNews" class="splide rounded-10px m-10px">
+    <div class="splide__track">
+      <ul class="splide__list flex gap-4">
+        <!-- Main slider content goes here -->
+        <% for (let i = 0; i < 8; i++) { %>
+        <li class="splide__slide flex flex-col border border-black bg-slate-200/70 w-52 rounded-10px">
+          <img
+            src="<%= latestNews[i].urlToImage %>"
+            class="block w-full md:h-96 h-3/3 rounded-10px h-36"
+            alt="..."
+            loading="lazy"
+          />
+          <div class="px-2 py-3 pb-5">
+            <p class="text-lg font-bold text-gray-800 text-center">
+              <%= latestNews[i].title.substring(0, 25) + '...' %>
+            </p>
+            <p class="text-sm font-bold text-gray-600 text-center">
+              <%= latestNews[i].description.substring(0, 80) + '...' %>
+            </p>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+  
