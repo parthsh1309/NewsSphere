@@ -12,6 +12,9 @@ module.exports = {
       },
       margin: {
         '10px': '10px',
+      },
+      flexGrow: {
+        '3': '3',
       }
     },
   },
