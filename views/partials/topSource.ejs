@@ -1,0 +1,22 @@
+<div class="bg-slate-700">
+  <p class="text-center text-3xl text-white font-bold underline">
+    Our Top Sources
+  </p>
+  <div class="flex flex-wrap gap-4 p-3 items-center justify-center">
+    <%for (let i = 0; i < topSources.length; i++) { %> <% for(let j = 0; j <
+    logoArray.length; j++){ %> 
+      <%if(topSources[i].url === logoArray[j].baseUrl) {%>
+    <a class="flex flex-col gap-2 cursor-pointer">
+      <img
+        src="<%=logoArray[j].icon%>"
+        class="h-28 w-28 rounded-full bg-slate-400"
+        alt=""
+      />
+
+      <span class="text-white text-xl font-normal">
+        <%=topSources[i].name%>
+      </span>
+    </a>
+     <%}}} %>
+  </div>
+</div>

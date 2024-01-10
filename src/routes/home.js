@@ -59,12 +59,14 @@ router.get("/", userAuth, async (req, res) => {
         });
   
         logoArray = await Promise.all(logoPromises);
+        console.log('top source',inTopSources);
+        console.log('Logo Array',logoArray);
   
-        cache.set(cacheKeyHeadlines, topHeadlines, { ttl: 60 * 20 });
-        cache.set(cacheKeyLatestNews, latestNews, { ttl: 60 * 20 });
-        cache.set(cacheKeyInTopSources, inTopSources, { ttl: 60 * 20 });
-        cache.set(cacheKeyUsTopSources, usTopSources, { ttl: 60 * 20 });
-        cache.set(cacheKeyLogos, logoArray, { ttl: 60 * 20 });
+        cache.set(cacheKeyHeadlines, topHeadlines, { ttl: 60 * 5 });
+        cache.set(cacheKeyLatestNews, latestNews, { ttl: 60 * 5 });
+        cache.set(cacheKeyInTopSources, inTopSources, { ttl: 60 * 5 });
+        cache.set(cacheKeyUsTopSources, usTopSources, { ttl: 60 * 5 });
+        cache.set(cacheKeyLogos, logoArray, { ttl: 60 * 5 });
       }
   
       // Render the page with the retrieved data and logos
@@ -77,7 +79,7 @@ router.get("/", userAuth, async (req, res) => {
     } catch (error) {
       console.error("Error:", error);
       // Handle errors appropriately
-      res.status(500).send("Internal Server Error");
+      res.status(500).send("Internal Heart Failure");
     }
   });
 
