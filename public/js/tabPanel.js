@@ -19,3 +19,4 @@ tabBtns.forEach((element) => {
     showTab(tabID);
   })
 })
+
